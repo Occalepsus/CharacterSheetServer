@@ -16,8 +16,9 @@ def index():
     return render_template("indexBis.html", **values)
 
 @main.route('/profile')
+@login_required
 def profile():
-    return render_template('profile.html')
+    return render_template('profile.html', name=current_user.name)
 
 
 @main.route('/js/test.js')

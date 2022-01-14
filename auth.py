@@ -15,15 +15,33 @@ auth = Blueprint('auth', __name__) # create a Blueprint object that
                                    # we name 'auth'
 
 ####################################################################
-@auth.route('/login', methods=['GET']) # define login page path
-def login(): # define login page fucntion
-        #return 'login'
-        return render_template('login.html')
+@auth.route('/login', methods=['GET', 'POST']) # define login page path
+def login():
+        if request.method == 'GET':
+                return render_template('login.html')
+        else:
+                email = request.form.get('email')
+                password = request.form.get('password')
+                remember = True if request.form.get('remember') else False
+                user = User.query.filter_by(email=email).first()
+                
+                if not user:
+                        flash('Please sign up before !')
+                        return redirect(url_for('auth.signup'))
+                elif not check_password_hash(user.password, password):
+                        flash('Wrong password')
+                        return redirect(url_for('auth.login'))
+                
+                else:
+                        login_user(user, remember=remember)
+                        return redirect(url_for('main.profile'))
+
 ####################################################################
-@auth.route('/signup', methods=['GET'])# we define the sign up path
+@auth.route('/signup', methods=['GET', 'POST'])# we define the sign up path
 def signup(): # define the sign up function
         if request.method == 'GET':
                 return render_template('signup.html')
+        #if the request if POST, we check email
         else:
                 email = request.form.get('email')
                 name = request.form.get('name')
@@ -40,5 +58,7 @@ def signup(): # define the sign up function
 
 ####################################################################
 @auth.route('/logout') # define logout path
+@login_required
 def logout(): #define the logout function
-    return render_template('logout.html')
+        logout_user()
+        return render_template('logout.html')

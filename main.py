@@ -1,19 +1,26 @@
-from flask import Flask, render_template, send_from_directory, request
+from flask import Blueprint, Flask, render_template, send_from_directory, request
 from flask_socketio import SocketIO, emit
+from flask_login import login_required, current_user
+from __init__ import create_app, db
+#from flask.ext.sqlalchemy import SQLAlchemy
 
 values = {'name': 'a', 'value': '0'}
 
+main = Blueprint('main', __name__)
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'tempKey'
+app=create_app()
 socketio = SocketIO(app)
 
-@app.route('/', methods=['GET', 'POST'])
-def home():
-    return render_template("index.html")
+@main.route('/', methods=['GET', 'POST'])
+def index():
+    return render_template("indexBis.html", **values)
+
+@main.route('/profile')
+def profile():
+    return render_template('profile.html')
 
 
-@app.route('/js/test.js')
+@main.route('/js/test.js')
 def sendScript():
     return send_from_directory("./scripts", "test.js")
 
@@ -21,12 +28,16 @@ def sendScript():
 @socketio.on('connect')
 def test_connect():
     emit('after connect',  {'data':'Lets dance'})
+    print('Client conected')
 
 
 @socketio.on('data value changed')
-def value_changed():
+def value_changed(message):
     values[message['who']] = message['data']
+    print('Message recieved : ' + message['who'] + ', ' + message['data'])
+    emit('update', message, broadcast=True)
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0')
+    db.create_all(app=create_app())
+    socketio.run(app, host='0.0.0.0', debug=True)

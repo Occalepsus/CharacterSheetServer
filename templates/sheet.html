@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 id="title" value="{{pageId}}">Modification of {{name}}</h1>
+<script src="./js/test.js"></script>
+<form>
+    <input type="text" class="sync" id="name" value="{{name}}">
+    <input type="text" class="sync" id="age" value="{{age}}">
+    <select class="sync" id="type">
+        <option value="great">Great</option>
+        <option value="good">Good</option>
+        <option value="neutral">Neutral</option>
+        <option value="bad">Bad</option>
+        <option value="evil">Evil</option>
+    </select>
+</form>
+{% endblock %}

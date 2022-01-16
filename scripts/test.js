@@ -4,6 +4,7 @@ $(document).ready(function (e) {
 
     $('input.sync').on('input', function(event) {
         socket.emit('data value changed', {
+            which: document.getElementById('title').val(),
             who: $(this).attr('id'),
             data: $(this).val()
         });

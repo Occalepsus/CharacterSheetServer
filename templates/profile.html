@@ -2,6 +2,12 @@
 
 {% block content %}
 <h1 class="title">
-    Welcome, {{name}}!
+    Welcome, {{name}} !
 </h1>
+
+<ul class="collection">
+    {% for row in rows %}
+        <li class="sheet"><a href="{{row.path}}">{{row.name}}</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}

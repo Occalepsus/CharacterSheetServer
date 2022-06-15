@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0" />
+  <meta name="viewport" content="height=device-height, initial-scale = 1.0, maximum-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/augmented-ui@2/augmented-ui.min.css">
+  <link rel="stylesheet" href="test.css">
+</html>
+
+<body>
+<div data-augmented-ui="tl-clip br-clip both">aaaaaaaaaaaaa</div>
+
+          <figure>
+            <figcaption>
+              <code style="white-space: pre; font-size: 0.75rem;">
+            .pitch-mixin {
+              --aug-tr: 25px;
+              --aug-b-extend1: 50%;
+          
+              --aug-border-all: 7px;
+              --aug-border-bg: radial-gradient(
+                at top, gold 25%, transparent 50%),
+                url("/img/what_a_save.gif") 50% 50% / 100% 100%;
+          
+              --aug-inlay-all: 4px;
+              --aug-inlay-bg: radial-gradient(gold, black);
+              --aug-inlay-opacity: 0.5;
+            }
+                        </code>
+            </figcaption>
+            <div class="pitch-mixin" data-augmented-ui="tl-clip-x tr-scoop b-clip-x both">
+              &lt;div class="pitch-mixin"<br>
+              data-augmented-ui="<br>
+              tl-clip tr-scoop b-clip-x both"&gt;
+            </div>
+          </figure>
+<figure>
+    <ul class="nesting-example" data-augmented-ui
+        data-note="This adds ~300 false positives to the IACVT/unset UseCounter in Chrome 86+">
+        <li data-augmented-ui class="nested nesting-left">☢</li>
+        <li data-augmented-ui class="nested nesting-right">✋</li>
+        <li data-augmented-ui class="nested nesting-bottom">⛉</li>
+        <li data-augmented-ui class="nested nesting-top">⚑</li>
+    </ul>
+    <figcaption>
+        For example, this figure is an augmented &lt;ul&gt; with augmented &lt;li&gt; direct descendants. Both the
+        parent and child use clip augs in tl1, tr1, br1, and bl1 positions without the children using additional augs
+        that the parent didn't, so the edge case is satisfied.
+    </figcaption>
+</figure>
+
+
+<div data-augmented-ui>
+  Augmented Parent Container
+  <ul data-augmented-ui-reset>
+    <!-- reset layer -->
+    <li data-augmented-ui>
+      Augmented descendant with unique configuration
+    </li>
+    <li data-augmented-ui>
+      Augmented descendant with unique configuration
+    </li>
+  </ul>
+</div>
+
+<div data-augmented-ui="border">
+    aaaa
+</div>
+</body>

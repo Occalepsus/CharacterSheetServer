@@ -21,16 +21,16 @@ def login():
         user = Users.query.filter_by(name=name).first()
                 
         if not user:
-                flash('Please sign up before !')
-                return redirect(url_for('auth.signup'))
+            flash('Please sign up before !')
+            return redirect(url_for('auth.signup'))
 
         elif not check_password_hash(user.password, password):
-                flash('Wrong password')
-                return redirect(url_for('auth.login'))
+            flash('Wrong password')
+            return redirect(url_for('auth.login'))
         
         else:
-                login_user(user, remember=remember)
-                return redirect(url_for('player_profile.profile'))
+            login_user(user, remember=remember)
+            return redirect(url_for('player_profile.profile'))
 
 
 # For singing up
@@ -53,8 +53,6 @@ def signup():
 
         db.session.add(new_user)
         db.session.commit()
-
-
 
         return redirect(url_for('auth.login'))
 

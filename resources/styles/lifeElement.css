@@ -1,0 +1,160 @@
+svg {
+  height: 300px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  width: 300px;
+}
+
+.progress-bar__background {
+  fill: none;
+  stroke: #505657;
+  stroke-width: 3;
+}
+
+.progress-bar__progress {
+  fill: none;
+  stroke: #505657;
+  stroke: #4ddd60;
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 100;
+  stroke-linecap: round;
+  stroke-width: 3;
+  -webkit-transition: stroke-dashoffset 1s ease-in-out;
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+div #life {
+  --center-pos-x: 50.25%;
+  --center-pos-y: 45.4%;
+  position: absolute;
+  top: var(--center-pos-y);
+  left: var(--center-pos-x);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: auto;
+  width: auto;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+div #life .fit-screen {
+  width: 35vh;
+  height: 35vh;
+}
+
+div #life .life-value {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+div #life .life-value .buttons {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+div #life .life-value button {
+  padding: 10% 10% 0 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div #life .life-value button#gain-one {
+  color: #4ddd60;
+}
+
+div #life .life-value button#gain-one:hover {
+  -webkit-transform: translateY(-5%);
+          transform: translateY(-5%);
+}
+
+div #life .life-value button#loose-one {
+  color: #cf0303;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+
+div #life .life-value button#loose-one:hover {
+  -webkit-transform: translateY(55%);
+          transform: translateY(55%);
+}
+
+div #life .life-value #life-points {
+  color: #67b1bb;
+  font-weight: 700;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div #life .life-value #life-points input {
+  color: #67b1bb;
+  font-weight: 700;
+  font-size: 13vh;
+  width: 45%;
+  text-align: right;
+  background: none;
+  border: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+
+div #life .life-value #life-points input::-webkit-outer-spin-button, div #life .life-value #life-points input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+div #life .life-value #life-points input input[type=number] {
+  -moz-appearance: textfield;
+}
+
+div #life .life-value #life-points input:hover {
+  -webkit-transform: translateY(-5%);
+          transform: translateY(-5%);
+}
+
+div #life .life-value #global-life {
+  color: #3d818a;
+  font-weight: 600;
+  font-size: 6vh;
+  -webkit-transform: translateX(40%);
+          transform: translateX(40%);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+div #life .life-value #global-life i {
+  font-size: 20%;
+}
+
+div #life #bottom-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+  -webkit-transform: translateX(-6%);
+          transform: translateX(-6%);
+}
+/*# sourceMappingURL=lifeElement.css.map */

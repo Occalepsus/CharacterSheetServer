@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flask Auth Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="resources/styles/uicons-regular-rounded.css" />
+    <link rel="stylesheet" href="resources/styles/sheetTest.css"/>
+    <link rel="stylesheet" href="resources/styles/lifeElement.css"/>
+    <link rel="stylesheet" href="resources/styles/main-menu.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="scripts/progressBar.js"></script>
+
+</head>
+<body>
+    
+    <div class="window background">
+        <div class="canvas canvas-border wrapper">
+            <div id="left-panel" class="column">
+                <div class="canvas-border content-wiewport">
+                    Intelligence
+                </div>
+                <div class="canvas-border content-wiewport">
+                    Force
+                </div>
+                <div class="canvas-border content-wiewport">
+                    Dextérité
+                </div>
+            </div>
+            <div id="right-panel" class="column">
+                <div class="canvas-border content-wiewport">
+                    Sagesse
+                </div>
+                <div class="canvas-border content-wiewport">
+                    Constitution
+                </div>
+                <div class="canvas-border content-wiewport">
+                    Charisme
+                </div>
+            </div>
+            
+            <div id="center-panel">
+                <div id="life" class="">
+                    <div >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34" class="fit-screen">
+                            <circle cx="47%" cy="47%" r="45%" class="progress-bar__background" />
+                            <circle cx="47%" cy="47%" r="45%" class="progress-bar__progress js-progress-bar" />
+                        </svg>
+                        <div class="life-value">
+                            <h2 id="life-points"><input type="number" value=14></input><i>pv</i></h2>
+                            <div id="bottom-items">
+                                <div class="buttons">
+                                    <button id="gain-one"><i class="fi fi-rr-angle-up"></i></button>
+                                    <p style="color: #aaaaaa00">-</p>
+                                    <button id="loose-one"><i class="fi fi-rr-angle-down"></i></button>
+                                </div>
+                                <p style="color: #aaaaaa00">---</p>
+                                <h3 id="global-life"><span id="value">20</span><i>max</i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="head" class="box">
+                    aaa
+                </div>
+                <!-- <div id="life">
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                    </svg>
+                </div> -->
+                <div id="main-canvas" class="canvas-border">
+                    <div id="info-left" class="canvas-border main-element">
+                        left
+                    </div>
+                    <div id="character-picture-parent" class="canvas-border main-element">
+                        <img id="character-picture" src="/resources/css-3.png" width="100%" height="100%">
+                    </div>
+                    <div id="info-right" class="canvas-border main-element">
+                        right
+                    </div>
+                    <button id="switch-button">
+                        <img src="/resources/svg/echange.svg">
+                    </button>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    
+</body>

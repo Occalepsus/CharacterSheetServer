@@ -1,0 +1,136 @@
+$progress-bar-stroke-width: 3;
+$progress-bar-size: 300px;
+
+svg {
+  height: $progress-bar-size;
+  transform: rotate(-90deg);
+  width: $progress-bar-size;
+}
+
+.progress-bar__background {
+  fill: none;
+  stroke: #505657;
+  stroke-width: $progress-bar-stroke-width;
+}
+
+.progress-bar__progress {
+  fill: none;
+  stroke: #505657;
+  stroke: #4ddd60;
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 100;
+  stroke-linecap: round;
+  stroke-width: $progress-bar-stroke-width;
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+div #life {
+  --center-pos-x: 50.25%;
+  --center-pos-y: 45.4%;
+
+  position: absolute;
+
+  top: var(--center-pos-y);
+  left: var(--center-pos-x);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  height: auto;
+  width: auto;
+
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+
+  & .fit-screen {
+    width: 35vh;
+    height: 35vh;
+  }
+
+  & .life-value {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    & .buttons {
+      flex-wrap: nowrap;
+    }
+
+    & button {
+      padding: 10% 10% 0 10%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      
+      &#gain-one {
+        color:#4ddd60;
+
+        &:hover {
+          transform: translateY(-5%);
+        }
+      }
+      &#loose-one {
+        color: #cf0303;
+        transform: translateY(50%);
+
+        &:hover {
+          transform: translateY(55%);
+        }
+      }
+    }
+
+    & #life-points {
+      color:rgb(103, 177, 187);
+      font-weight: 700;
+      justify-content: center;
+      align-items: center;
+
+      & input {
+        color:rgb(103, 177, 187);
+        font-weight: 700;
+        font-size: 13vh;
+        width: 45%;
+        text-align: right;
+        background: none;
+        border: none;
+
+        transition: 0.5s;
+
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+          -moz-appearance: textfield;
+        }
+
+        &:hover {
+          transform: translateY(-5%);
+        }
+      }
+    }
+    & #global-life {
+      color: rgb(61, 129, 138);
+      font-weight: 600;
+      font-size: 6vh;
+      transform: translateX(40%);
+      align-items: flex-start;
+
+      & i {
+        font-size: 20%;
+      }
+    }
+  }
+  & #bottom-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(20%);
+    transform: translateX(-6%);
+  }
+}

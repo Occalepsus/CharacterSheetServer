@@ -1,0 +1,53 @@
+div#main-canvas {
+    height: 20vh;
+    width: 55%;
+    padding: 0 2% 0 2%;
+
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-5vh);
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+
+    & .main-element {
+        flex: auto;
+    }
+
+    & #character-picture-parent {
+        position: relative;
+        height: 20vh;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            display: block;
+            padding-right: 100%;
+        }
+
+        & img#character-picture {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+    }
+}
+
+#switch-button {
+    position: fixed;
+    transform: translate(42vw, -4vh);
+    height: 25%;
+
+    padding: 1% 1% 1% 1%;
+
+    fill: #2be4ea;
+
+    & img {
+        height: 100%;
+        width: auto;
+    }
+}

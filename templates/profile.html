@@ -7,7 +7,7 @@
 
 <ul class="collection">
     {% for row in rows %}
-        <li class="sheet"><a href="{{row.path}}">{{row.name}}</a></li>
+        <li class="sheet"><a href="/{{row.user}}/sheet{{row.id}}">{{row.name}}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
